@@ -1,7 +1,7 @@
-import { request } from '../../utils/ky';
+import ky, { request } from '../../utils/ky';
 
 import type { PokemonCatalog } from './types';
 
 export async function fetchPokemons(): Promise<PokemonCatalog> {
-  return await request.get('pokemon?limit=10&offset=0').json();
+  return await request.get('pokemon?limit=16&offset=0').json();
 }

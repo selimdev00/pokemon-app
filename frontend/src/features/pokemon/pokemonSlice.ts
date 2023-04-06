@@ -41,4 +41,6 @@ export const pokemonSlice = createSlice({
 
 export const selectPokemons = (state: RootState) => state.pokemon.pokemons;
 
+export const selectStatus = (state: RootState) => state.pokemon.status;
+
 export default pokemonSlice.reducer;

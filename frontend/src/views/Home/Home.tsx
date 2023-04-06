@@ -3,8 +3,8 @@ import React from 'react';
 import { Layout, Breadcrumb, theme, Typography } from 'antd';
 const { Title, Paragraph } = Typography;
 
-import PokemonCatalog from '../features/pokemon/PokemonCatalog';
-import Default from '../layouts/Default';
+import PokemonCatalog from '../../features/pokemon/PokemonCatalog';
+import Default from '../../layouts/Default';
 const { Content } = Layout;
 
 const Home = () => {

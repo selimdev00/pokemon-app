@@ -11,7 +11,7 @@ import type { SizeType } from 'antd/es/config-provider/SizeContext';
 
 import Default from '../../layouts/Default';
 
-import aboutImage from '../../assets/images/about-image.webp';
+import aboutImage from './images/about-image.webp';
 import styles from './about.module.scss';
 
 const About = () => {
@@ -19,7 +19,7 @@ const About = () => {
     token: { colorBgContainer },
   } = theme.useToken();
 
-  const [size] = useState<SizeType>('large'); // default is 'middle'
+  const [size] = useState<SizeType>('large');
 
   return (
     <Default>
