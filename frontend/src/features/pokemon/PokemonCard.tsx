@@ -7,7 +7,7 @@ import ky from '../../utils/ky';
 import { Card, Image, Avatar, Descriptions, Modal, Typography, Badge, List } from 'antd';
 const { Meta } = Card;
 const { Title } = Typography;
-import { HeartOutlined, ShoppingCartOutlined, EyeOutlined } from '@ant-design/icons';
+import { EyeOutlined } from '@ant-design/icons';
 
 import type { Pokemon } from './types';
 
