@@ -25,7 +25,7 @@ const PokemonCatalog = () => {
   }
 
   useEffect(() => {
-    dispatch(fetchPokemonsAsync({ limit: 12, offset: (page - 1) * 12 }));
+    dispatch(fetchPokemonsAsync({ limit: 16, offset: (page - 1) * 16 }));
   }, []);
 
   function scrollToTop() {
@@ -86,7 +86,7 @@ const PokemonCatalog = () => {
               onChange={(page, pageSize) => {
                 setPage(page);
                 navigate(`/catalog/${page}`);
-                dispatch(fetchPokemonsAsync({ limit: 12, offset: page * 12 }));
+                dispatch(fetchPokemonsAsync({ limit: 16, offset: (page - 1) * 16 }));
                 scrollToTop();
               }}
             />

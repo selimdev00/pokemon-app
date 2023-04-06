@@ -1,6 +1,5 @@
 import React from 'react';
-import { Menu, Layout, MenuProps, Typography, Avatar, Col, Row, theme } from 'antd';
-const { Paragraph } = Typography;
+import { Menu, Layout, MenuProps, Avatar, Col, Row, theme } from 'antd';
 import { Link } from 'react-router-dom';
 import { DingtalkOutlined, HeartOutlined, UnorderedListOutlined } from '@ant-design/icons';
 const { Header, Footer } = Layout;

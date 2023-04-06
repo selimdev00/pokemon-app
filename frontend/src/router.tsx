@@ -1,5 +1,5 @@
 import React from 'react';
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, redirect } from 'react-router-dom';
 
 import Home from './views/Home/Home';
 import About from './views/About/About';
@@ -12,14 +12,11 @@ const router = createBrowserRouter([
   },
   {
     path: '/catalog',
-    children: [
-      {
-        path: ':page',
-        element: <Catalog />,
-      },
-    ],
+    loader: () => {
+      return redirect('/catalog/1');
+    },
   },
-
+  { path: '/catalog/:page', element: <Catalog /> },
   {
     path: '/about',
     element: <About />,

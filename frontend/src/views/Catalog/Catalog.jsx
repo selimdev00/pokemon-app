@@ -10,7 +10,7 @@ const { Content } = Layout;
 const Home = () => {
   return (
     <Default>
-      <Content className='site-layout'>
+      <Content className='site-layout' style={{ margin: '0 auto', maxWidth: 1600 }}>
         <Breadcrumb items={[{ title: 'Home' }, { title: 'Catalog' }]}></Breadcrumb>
 
         <Title level={2}>Pokemons</Title>

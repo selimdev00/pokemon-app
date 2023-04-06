@@ -12,6 +12,8 @@ import type { SizeType } from 'antd/es/config-provider/SizeContext';
 import Default from '../../layouts/Default';
 
 import aboutImage from './images/about-image.webp';
+import secondAboutImage from './images/about-image-2.webp';
+
 import styles from './about.module.scss';
 
 const About = () => {
@@ -23,7 +25,7 @@ const About = () => {
 
   return (
     <Default>
-      <Content className='site-layout'>
+      <Content className='site-layout' style={{ margin: '0 auto', maxWidth: 1200 }}>
         <Breadcrumb items={[{ title: 'Home' }, { title: 'About pokemons' }]}></Breadcrumb>
 
         <Title level={2}>About Pokemons</Title>
@@ -39,7 +41,9 @@ const About = () => {
               className='row-gutter'
               style={{ marginBottom: 20 }}
             >
-              <Image src={aboutImage} />
+              <Image src={aboutImage} style={{ marginBottom: '40px' }} />
+
+              <Image src={secondAboutImage} />
             </Col>
 
             <Col
