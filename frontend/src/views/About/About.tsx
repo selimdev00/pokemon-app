@@ -30,11 +30,28 @@ const About = () => {
 
         <div className='site-layout-content' style={{ background: colorBgContainer }}>
           <Row gutter={30}>
-            <Col span={12} className='row-gutter'>
+            <Col
+              span={6}
+              lg={{ span: 6 }}
+              md={{ span: 6 }}
+              sm={{ span: 24 }}
+              xs={{ span: 24 }}
+              className='row-gutter'
+              style={{ marginBottom: 20 }}
+            >
               <Image src={aboutImage} />
             </Col>
 
-            <Col span={12} className='gutter-row'>
+            <Col
+              span={18}
+              lg={{ span: 18 }}
+              md={{ span: 18 }}
+              sm={{ span: 24 }}
+              xs={{ span: 24 }}
+              className='gutter-row'
+            >
+              <Title>Hello, Pokemon!</Title>
+
               <Paragraph className={styles.about__text}>
                 Pokemons are creatures that inhabit a vibrant and diverse world of adventure,
                 waiting to be explored. With over 800 species of Pokémon to discover, each with
