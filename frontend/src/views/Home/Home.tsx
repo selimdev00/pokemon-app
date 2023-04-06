@@ -25,9 +25,7 @@ const Home = () => {
           abilities, strengths, and weaknesses, there is always something new to discover.
         </Paragraph>
 
-        <div className='site-layout-content' style={{ background: colorBgContainer }}>
-          <PokemonCatalog />
-        </div>
+        <PokemonCatalog />
       </Content>
     </Default>
   );

@@ -23,7 +23,14 @@ const PokemonCatalog = () => {
     return (
       <Row gutter={[16, 16]}>
         {new Array(16).fill(0).map((_, index) => (
-          <Col span={6} key={index} className='gutter-row'>
+          <Col
+            span={6}
+            key={index}
+            className='gutter-row'
+            xs={{ span: 6 }}
+            md={{ span: 12 }}
+            sm={{ span: 24 }}
+          >
             <PokemonCardLoading active={true} />
           </Col>
         ))}
@@ -37,7 +44,14 @@ const PokemonCatalog = () => {
     return (
       <Row gutter={[16, 24]}>
         {pokemons.map((pokemon) => (
-          <Col key={pokemon.name} span={6} className='gutter-row'>
+          <Col
+            key={pokemon.name}
+            span={6}
+            className='gutter-row'
+            lg={{ span: 6 }}
+            sm={{ span: 12 }}
+            xs={{ span: 24 }}
+          >
             <PokemonCard pokemon={pokemon} />
           </Col>
         ))}
