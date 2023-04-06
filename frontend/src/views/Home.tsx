@@ -15,9 +15,7 @@ const Home = () => {
   return (
     <Default>
       <Content className='site-layout'>
-        <Breadcrumb style={{ margin: '0 0 12px 0' }}>
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
-        </Breadcrumb>
+        <Breadcrumb items={[{ title: 'Home' }, { title: 'Catalog' }]}></Breadcrumb>
 
         <Title level={2}>Pokemons</Title>
 

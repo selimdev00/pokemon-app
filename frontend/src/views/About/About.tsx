@@ -1,26 +1,31 @@
 import React, { useState } from 'react';
-import { theme, Layout, Typography, Image, Row, Col, Button } from 'antd';
+
+import { Link } from 'react-router-dom';
+
+import { theme, Layout, Typography, Image, Row, Col, Button, Breadcrumb } from 'antd';
 import { CompassOutlined } from '@ant-design/icons';
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
+
 import type { SizeType } from 'antd/es/config-provider/SizeContext';
 
 import Default from '../../layouts/Default';
 
 import aboutImage from '../../assets/images/about-image.webp';
 import styles from './about.module.scss';
-import { Link } from 'react-router-dom';
 
 const About = () => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
 
-  const [size, setSize] = useState<SizeType>('large'); // default is 'middle'
+  const [size] = useState<SizeType>('large'); // default is 'middle'
 
   return (
     <Default>
       <Content className='site-layout'>
+        <Breadcrumb items={[{ title: 'Home' }, { title: 'About pokemons' }]}></Breadcrumb>
+
         <Title level={2}>About Pokemons</Title>
 
         <div className='site-layout-content' style={{ background: colorBgContainer }}>

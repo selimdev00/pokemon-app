@@ -3,10 +3,7 @@ import React from 'react';
 import { Card } from 'antd';
 import { HeartOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 
-export interface Pokemon {
-  id: number;
-  name: string;
-}
+import type { Pokemon } from './types';
 
 interface Props {
   pokemon: Pokemon;

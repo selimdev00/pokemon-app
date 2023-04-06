@@ -1,23 +1,19 @@
 import React from 'react';
 import { Menu, Layout, MenuProps } from 'antd';
 import { Link } from 'react-router-dom';
-import { DingtalkOutlined } from '@ant-design/icons';
+import { DingtalkOutlined, UnorderedListOutlined } from '@ant-design/icons';
 const { Header, Footer } = Layout;
 
 const items: MenuProps['items'] = [
   {
     label: <Link to='/about'>About pokemons</Link>,
-    key: 'mail',
+    key: 'about',
     icon: <DingtalkOutlined />,
   },
-
   {
-    label: (
-      <a href='https://ant.design' target='_blank' rel='noopener noreferrer'>
-        Navigation Four - Link
-      </a>
-    ),
-    key: 'alipay',
+    label: <Link to='/'>Pokemon catalog</Link>,
+    key: 'catalog',
+    icon: <UnorderedListOutlined />,
   },
 ];
 
