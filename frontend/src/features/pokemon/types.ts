@@ -3,6 +3,22 @@ export interface PokemonCatalog {
   count: number;
 }
 
+export interface Ability {
+  ability: {
+    name: string;
+    url: string;
+  };
+}
+
+export interface Stat {
+  base_stat: number;
+  effort: number;
+  stat: {
+    name: string;
+    url: string;
+  };
+}
+
 export interface Pokemon {
   id: number;
   name: string;
@@ -10,6 +26,8 @@ export interface Pokemon {
   height: number;
   weight: number;
   base_experience: number;
+  abilities: Ability[];
+  stats: Stat[];
   sprites: {
     front_default: string;
     other: {
