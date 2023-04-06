@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { store } from './app/store';
 import reportWebVitals from './reportWebVitals';
-import { RouterProvider } from 'react-router-dom';
+import { BrowserRouter, RouterProvider, Link } from 'react-router-dom';
 import router from './router';
 
 /* STYLES */
@@ -12,7 +12,11 @@ import './assets/scss/main.scss';
 
 /* COMPONENTS */
 import { Layout } from 'antd';
-const { Header, Content, Footer } = Layout;
+const { Header, Footer } = Layout;
+
+import { DingtalkOutlined } from '@ant-design/icons';
+import type { MenuProps } from 'antd';
+import { Menu } from 'antd';
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
@@ -20,19 +24,7 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Layout>
-        <Header>
-          <div className='header__logo'></div>
-        </Header>
-
-        <Content>
-          <RouterProvider router={router} />
-        </Content>
-
-        <Footer>
-          <h1>Footer</h1>
-        </Footer>
-      </Layout>
+      <RouterProvider router={router} />
     </Provider>
   </React.StrictMode>,
 );
