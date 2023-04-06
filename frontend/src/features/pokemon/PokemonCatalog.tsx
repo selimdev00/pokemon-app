@@ -1,23 +1,39 @@
 import React, { useEffect, useState } from 'react';
 
-import { Col, Row, Skeleton } from 'antd';
+import { Col, Row, Pagination } from 'antd';
 
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
-import { selectPokemons, fetchPokemonsAsync, selectStatus } from './pokemonSlice';
+import { selectPokemon, fetchPokemonsAsync } from './pokemonSlice';
 import PokemonCard from './PokemonCard';
 import PokemonCardLoading from './PokemonCardLoading';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const PokemonCatalog = () => {
-  const pokemons = useAppSelector(selectPokemons);
-  const status = useAppSelector(selectStatus);
+  const { pokemons, status, count } = useAppSelector(selectPokemon);
 
   const dispatch = useAppDispatch();
 
+  const params = useParams();
+  const navigate = useNavigate();
+
+  if (!params?.page) return;
+
+  const [page, setPage] = useState<number>(parseInt(params.page));
+
+  if (!page) {
+    setPage(1);
+  }
+
   useEffect(() => {
-    dispatch(fetchPokemonsAsync());
+    dispatch(fetchPokemonsAsync({ limit: 12, offset: (page - 1) * 12 }));
   }, []);
 
-  const [active, setActive] = useState(true);
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }
 
   function PendingCatalog() {
     return (
@@ -42,20 +58,41 @@ const PokemonCatalog = () => {
     return <PendingCatalog />;
   } else {
     return (
-      <Row gutter={[16, 24]}>
-        {pokemons.map((pokemon) => (
-          <Col
-            key={pokemon.name}
-            span={6}
-            className='gutter-row'
-            lg={{ span: 6 }}
-            sm={{ span: 12 }}
-            xs={{ span: 24 }}
-          >
-            <PokemonCard pokemon={pokemon} />
+      <>
+        <Row gutter={[16, 24]}>
+          {pokemons.map((pokemon) => (
+            <Col
+              key={pokemon.name}
+              span={6}
+              className='gutter-row'
+              lg={{ span: 6 }}
+              sm={{ span: 12 }}
+              xs={{ span: 24 }}
+            >
+              <PokemonCard pokemon={pokemon} />
+            </Col>
+          ))}
+        </Row>
+
+        <Row style={{ margin: '60px 0px' }}>
+          <Col offset={6}>
+            <Pagination
+              total={count}
+              showSizeChanger
+              showQuickJumper
+              current={page}
+              defaultPageSize={12}
+              showTotal={(total) => `Total ${total} pokemons`}
+              onChange={(page, pageSize) => {
+                setPage(page);
+                navigate(`/catalog/${page}`);
+                dispatch(fetchPokemonsAsync({ limit: 12, offset: page * 12 }));
+                scrollToTop();
+              }}
+            />
           </Col>
-        ))}
-      </Row>
+        </Row>
+      </>
     );
   }
 };

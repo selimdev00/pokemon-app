@@ -38,7 +38,11 @@ const PokemonCard = (props: Props) => {
         title={pokemon.name}
         actions={[<HeartOutlined key='favorite' />, <ShoppingCartOutlined key='buy' />]}
         cover={
-          <Image alt={pokemon.name} src={pokemon.sprites.other['official-artwork'].front_default} />
+          <Image
+            alt={pokemon.name}
+            src={pokemon.sprites.other['official-artwork'].front_default}
+            style={{ minHeight: 290 }}
+          />
         }
       >
         <Meta

@@ -1,7 +1,8 @@
 import React from 'react';
-import { Menu, Layout, MenuProps } from 'antd';
+import { Menu, Layout, MenuProps, Typography, Avatar, Col, Row, theme } from 'antd';
+const { Paragraph } = Typography;
 import { Link } from 'react-router-dom';
-import { DingtalkOutlined, UnorderedListOutlined } from '@ant-design/icons';
+import { DingtalkOutlined, HeartOutlined, UnorderedListOutlined } from '@ant-design/icons';
 const { Header, Footer } = Layout;
 
 const items: MenuProps['items'] = [
@@ -11,7 +12,7 @@ const items: MenuProps['items'] = [
     icon: <DingtalkOutlined />,
   },
   {
-    label: <Link to='/'>Pokemon catalog</Link>,
+    label: <Link to='/catalog'>Pokemon catalog</Link>,
     key: 'catalog',
     icon: <UnorderedListOutlined />,
   },
@@ -22,6 +23,10 @@ interface LayoutProps {
 }
 
 const Default = (props: LayoutProps) => {
+  const {
+    token: { colorBgContainer },
+  } = theme.useToken();
+
   return (
     <Layout className='layout'>
       <Header className='header__wrapper'>
@@ -34,8 +39,30 @@ const Default = (props: LayoutProps) => {
 
       {props.children}
 
-      <Footer>
-        <h1>Footer</h1>
+      <Footer
+        style={{
+          textAlign: 'center',
+          backgroundColor: colorBgContainer,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Row align='middle' gutter={10} justify='center'>
+          <Col className='gutter-row'>
+            Made with <HeartOutlined /> by{' '}
+          </Col>
+          <Row className='gutter-row' align='middle' gutter={5}>
+            <Col className='gutter-row'>
+              <Avatar size={24} src='https://github.com/richiedev666.png' />
+            </Col>
+            <Col className='gutter-row'>
+              <a href='https://github.com/richiedev666' target='_blank' rel='noreferrer'>
+                Richie
+              </a>
+            </Col>
+          </Row>
+        </Row>
       </Footer>
     </Layout>
   );

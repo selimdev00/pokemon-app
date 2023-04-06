@@ -1,5 +1,6 @@
 export interface PokemonCatalog {
   results: Pokemon[];
+  count: number;
 }
 
 export interface Pokemon {
@@ -17,4 +18,9 @@ export interface Pokemon {
       };
     };
   };
+}
+
+export interface QueryParams {
+  limit: number;
+  offset: number;
 }
