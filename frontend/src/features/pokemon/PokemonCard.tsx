@@ -58,11 +58,7 @@ const PokemonCard = (props: Props) => {
       <Card
         loading={loading}
         title={pokemon.name}
-        actions={[
-          <HeartOutlined key='favorite' />,
-          <ShoppingCartOutlined key='buy' />,
-          <EyeOutlined key='open' onClick={openCardModal} />,
-        ]}
+        actions={[<EyeOutlined key='open' onClick={openCardModal} />]}
         cover={
           <Image
             alt={pokemon.name}
