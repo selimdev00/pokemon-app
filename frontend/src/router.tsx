@@ -4,6 +4,7 @@ import { createBrowserRouter, redirect } from 'react-router-dom';
 import Home from './views/Home/Home';
 import About from './views/About/About';
 import Catalog from './views/Catalog/Catalog';
+import NotFound from './views/NotFound';
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: '/about',
     element: <About />,
+  },
+  {
+    path: '*',
+    element: <NotFound />,
   },
 ]);
 

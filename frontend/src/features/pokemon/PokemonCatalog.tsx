@@ -3,13 +3,13 @@ import React, { useEffect, useState } from 'react';
 import { Col, Row, Pagination } from 'antd';
 
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
-import { selectPokemon, fetchPokemonsAsync } from './pokemonSlice';
+import { selectPokemon, fetchPokemonsAsync, setLimit } from './pokemonSlice';
 import PokemonCard from './PokemonCard';
 import PokemonCardLoading from './PokemonCardLoading';
 import { useNavigate, useParams } from 'react-router-dom';
 
 const PokemonCatalog = () => {
-  const { pokemons, status, count } = useAppSelector(selectPokemon);
+  const { pokemons, status, count, limit } = useAppSelector(selectPokemon);
 
   const dispatch = useAppDispatch();
 
@@ -25,7 +25,7 @@ const PokemonCatalog = () => {
   }
 
   useEffect(() => {
-    dispatch(fetchPokemonsAsync({ limit: 16, offset: (page - 1) * 16 }));
+    dispatch(fetchPokemonsAsync({ limit, offset: (page - 1) * limit }));
   }, []);
 
   function scrollToTop() {
@@ -33,6 +33,14 @@ const PokemonCatalog = () => {
       top: 0,
       behavior: 'smooth',
     });
+  }
+
+  function handlePageChange(page: number, pageSize: number) {
+    setPage(page);
+    dispatch(setLimit(pageSize));
+    navigate(`/catalog/${page}`);
+    dispatch(fetchPokemonsAsync({ limit: pageSize, offset: (page - 1) * pageSize }));
+    scrollToTop();
   }
 
   function PendingCatalog() {
@@ -43,9 +51,9 @@ const PokemonCatalog = () => {
             span={6}
             key={index}
             className='gutter-row'
-            xs={{ span: 6 }}
-            md={{ span: 12 }}
-            sm={{ span: 24 }}
+            lg={{ span: 6 }}
+            sm={{ span: 12 }}
+            xs={{ span: 24 }}
           >
             <PokemonCardLoading active={true} />
           </Col>
@@ -81,14 +89,9 @@ const PokemonCatalog = () => {
               showSizeChanger
               showQuickJumper
               current={page}
-              defaultPageSize={12}
+              defaultPageSize={limit}
               showTotal={(total) => `Total ${total} pokemons`}
-              onChange={(page, pageSize) => {
-                setPage(page);
-                navigate(`/catalog/${page}`);
-                dispatch(fetchPokemonsAsync({ limit: 16, offset: (page - 1) * 16 }));
-                scrollToTop();
-              }}
+              onChange={handlePageChange}
             />
           </Col>
         </Row>

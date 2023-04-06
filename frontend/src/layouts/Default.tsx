@@ -18,7 +18,7 @@ const items: MenuProps['items'] = [
 ];
 
 interface LayoutProps {
-  children: any;
+  children: JSX.Element | JSX.Element[];
 }
 
 const Default = (props: LayoutProps) => {

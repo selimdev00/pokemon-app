@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState, AppThunk } from '../../app/store';
+import { RootState } from '../../app/store';
 import { fetchPokemons } from './pokemonAPI';
 
 import type { Pokemon, QueryParams } from './types';
@@ -15,18 +15,24 @@ export interface PokemonState {
   pokemons: Pokemon[];
   status: 'idle' | 'loading' | 'failed';
   count: number;
+  limit: number;
 }
 
 const initialState: PokemonState = {
   pokemons: [],
   status: 'idle',
   count: 0,
+  limit: 16,
 };
 
 export const pokemonSlice = createSlice({
   name: 'pokemon',
   initialState,
-  reducers: {},
+  reducers: {
+    setLimit: (state, action: PayloadAction<number>) => {
+      state.limit = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchPokemonsAsync.pending, (state) => {
       state.status = 'loading';
@@ -45,5 +51,7 @@ export const pokemonSlice = createSlice({
 });
 
 export const selectPokemon = (state: RootState) => state.pokemon;
+
+export const { setLimit } = pokemonSlice.actions;
 
 export default pokemonSlice.reducer;

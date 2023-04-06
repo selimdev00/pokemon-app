@@ -41,7 +41,7 @@ const PokemonCard = (props: Props) => {
           <Image
             alt={pokemon.name}
             src={pokemon.sprites.other['official-artwork'].front_default}
-            style={{ minHeight: 290 }}
+            style={{ maxHeight: 200, objectFit: 'contain' }}
           />
         }
       >
