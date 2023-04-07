@@ -85,7 +85,7 @@ const PokemonCard = (props: Props) => {
         <Descriptions title='Basic characteristics: ' layout='vertical' size='small' column={2}>
           <Descriptions.Item label='ID'>{pokemon.id}</Descriptions.Item>
           <Descriptions.Item label='Experience'>
-            <span style={{ color: generateRandomColor() }}>{pokemon.base_experience} XP</span>
+            <span style={{ color: generateRandomColor() }}>{pokemon.base_experience || 0} XP</span>
           </Descriptions.Item>
           <Descriptions.Item label='Height'>{pokemon.height}</Descriptions.Item>
           <Descriptions.Item label='Weight'>{pokemon.weight}</Descriptions.Item>
