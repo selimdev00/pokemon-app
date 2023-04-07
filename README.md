@@ -3,4 +3,3 @@ The Pokemon website is an online platform dedicated to the popular franchise of 
 
 ## Available on
 https://pokemon-richie.netlify.app/ <br>
-https://pokemon-js33jjc2t-richiedev666.vercel.app/
