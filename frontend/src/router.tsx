@@ -5,6 +5,7 @@ import Home from './views/Home/Home';
 import About from './views/About/About';
 import Catalog from './views/Catalog/Catalog';
 import NotFound from './views/NotFound';
+import Search from './views/Search/Search';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
     },
   },
   { path: '/catalog/:page', element: <Catalog /> },
+  {
+    path: '/search',
+    element: <Search />,
+  },
   {
     path: '/about',
     element: <About />,

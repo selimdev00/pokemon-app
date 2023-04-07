@@ -89,7 +89,7 @@ const PokemonCatalog = () => {
           ))}
         </Row>
 
-        <Row align='middle' justify='center' style={{ margin: '60px 0 40px 0' }}>
+        <Row align='middle' justify='center' style={{ margin: '40px 0 ' }}>
           <Pagination
             total={count}
             showSizeChanger

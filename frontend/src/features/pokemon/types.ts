@@ -28,6 +28,7 @@ export interface Pokemon {
   base_experience: number;
   abilities: Ability[];
   stats: Stat[];
+  types: PokemonType[];
   sprites: {
     front_default: string;
     other: {
@@ -47,4 +48,17 @@ export interface Pokemon {
 export interface QueryParams {
   limit: number;
   offset: number;
+}
+
+export interface PokemonType {
+  type: {
+    name: string;
+    url: string;
+  };
+  name: string;
+  url: string;
+}
+
+export interface PokemonTypes {
+  results: PokemonType[];
 }

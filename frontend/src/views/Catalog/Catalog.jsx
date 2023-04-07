@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Layout, Breadcrumb, Typography } from 'antd';
-const { Title, Paragraph } = Typography;
+const { Title } = Typography;
 
 import PokemonCatalog from '../../features/pokemon/PokemonCatalog';
 import Default from '../../layouts/Default';
