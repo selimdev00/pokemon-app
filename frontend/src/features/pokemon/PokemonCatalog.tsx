@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-import { Col, Row, Pagination } from 'antd';
+import { Col, Row, Pagination, Typography } from 'antd';
+const { Paragraph } = Typography;
 
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import { selectPokemon, fetchPokemonsAsync, setLimit } from './pokemonSlice';
@@ -67,6 +68,12 @@ const PokemonCatalog = () => {
   } else {
     return (
       <>
+        <Paragraph>
+          Pokémon are creatures that inhabit a vibrant and diverse world of adventure, waiting to be
+          explored. With {count} species of Pokémon to discover, each with their own unique
+          abilities, strengths, and weaknesses, there is always something new to discover.
+        </Paragraph>
+
         <Row gutter={[16, 24]}>
           {pokemons.map((pokemon) => (
             <Col
@@ -82,18 +89,16 @@ const PokemonCatalog = () => {
           ))}
         </Row>
 
-        <Row style={{ margin: '60px 0px' }}>
-          <Col offset={6}>
-            <Pagination
-              total={count}
-              showSizeChanger
-              showQuickJumper
-              current={page}
-              defaultPageSize={limit}
-              showTotal={(total) => `Total ${total} pokemons`}
-              onChange={handlePageChange}
-            />
-          </Col>
+        <Row align='middle' justify='center' style={{ margin: '60px 0 40px 0' }}>
+          <Pagination
+            total={count}
+            showSizeChanger
+            showQuickJumper
+            current={page}
+            defaultPageSize={limit}
+            showTotal={(total) => `Total ${total} pokemons`}
+            onChange={handlePageChange}
+          />
         </Row>
       </>
     );

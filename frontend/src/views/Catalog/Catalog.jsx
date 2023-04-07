@@ -15,12 +15,6 @@ const Home = () => {
 
         <Title level={2}>Pokemons</Title>
 
-        <Paragraph>
-          Pokémon are creatures that inhabit a vibrant and diverse world of adventure, waiting to be
-          explored. With over 800 species of Pokémon to discover, each with their own unique
-          abilities, strengths, and weaknesses, there is always something new to discover.
-        </Paragraph>
-
         <PokemonCatalog />
       </Content>
     </Default>

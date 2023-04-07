@@ -61,6 +61,10 @@ const PokemonCard = (props: Props) => {
     );
   }
 
+  function PokemonExperience(pokemon: Pokemon) {
+    return (pokemon.base_experience || 0) + ' XP';
+  }
+
   if (loading) return <PokemonCardLoading active={true} />;
   else if (pokemon) {
     return (
@@ -85,7 +89,7 @@ const PokemonCard = (props: Props) => {
         <Descriptions title='Basic characteristics: ' layout='vertical' size='small' column={2}>
           <Descriptions.Item label='ID'>{pokemon.id}</Descriptions.Item>
           <Descriptions.Item label='Experience'>
-            <span style={{ color: generateRandomColor() }}>{pokemon.base_experience || 0} XP</span>
+            <span style={{ color: generateRandomColor() }}>{PokemonExperience(pokemon)}</span>
           </Descriptions.Item>
           <Descriptions.Item label='Height'>{pokemon.height}</Descriptions.Item>
           <Descriptions.Item label='Weight'>{pokemon.weight}</Descriptions.Item>
@@ -111,7 +115,7 @@ const PokemonCard = (props: Props) => {
           >
             <Descriptions.Item label='ID'>{pokemon.id}</Descriptions.Item>
             <Descriptions.Item label='Experience'>
-              <span style={{ color: generateRandomColor() }}>{pokemon.base_experience} XP</span>
+              <span style={{ color: generateRandomColor() }}>{PokemonExperience(pokemon)}</span>
             </Descriptions.Item>
             <Descriptions.Item label='Height'>{pokemon.height}</Descriptions.Item>
             <Descriptions.Item label='Weight'>{pokemon.weight}</Descriptions.Item>
@@ -129,7 +133,12 @@ const PokemonCard = (props: Props) => {
             style={{ marginBottom: 30 }}
           />
 
-          <Descriptions title='Stats: ' layout='vertical' size='small' column={3}>
+          <Descriptions
+            title='Stats: '
+            layout='vertical'
+            size='small'
+            column={{ xxl: 3, xl: 3, lg: 3, md: 3, sm: 2, xs: 2 }}
+          >
             {pokemon.stats.map((stat, index) => (
               <Descriptions.Item key={index} label={stat.stat.name}>
                 <span style={{ color: generateRandomColor() }}>{stat.base_stat}</span>
