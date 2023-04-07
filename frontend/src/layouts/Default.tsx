@@ -1,7 +1,12 @@
 import React from 'react';
 import { Menu, Layout, MenuProps, Avatar, Col, Row, theme } from 'antd';
 import { Link } from 'react-router-dom';
-import { DingtalkOutlined, HeartOutlined, UnorderedListOutlined } from '@ant-design/icons';
+import {
+  DingtalkOutlined,
+  HeartOutlined,
+  SearchOutlined,
+  UnorderedListOutlined,
+} from '@ant-design/icons';
 const { Header, Footer } = Layout;
 
 const items: MenuProps['items'] = [
@@ -14,6 +19,11 @@ const items: MenuProps['items'] = [
     label: <Link to='/catalog'>Pokemon catalog</Link>,
     key: 'catalog',
     icon: <UnorderedListOutlined />,
+  },
+  {
+    label: <Link to='/search'>Pokemon search</Link>,
+    key: 'search',
+    icon: <SearchOutlined />,
   },
 ];
 

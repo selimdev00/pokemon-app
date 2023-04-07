@@ -1,7 +1,20 @@
 import React, { useEffect, useState } from 'react';
 
+import { SearchOutlined } from '@ant-design/icons';
+
 import Default from '../../layouts/Default';
-import { Layout, Breadcrumb, Typography, Table, Button, Tooltip, Avatar, Input } from 'antd';
+import {
+  Layout,
+  Breadcrumb,
+  Typography,
+  Table,
+  Button,
+  Tooltip,
+  Avatar,
+  Input,
+  Row,
+  Col,
+} from 'antd';
 const { Title } = Typography;
 const { Content } = Layout;
 import { ColumnsType } from 'antd/es/table';
@@ -108,12 +121,21 @@ const Search = () => {
   ];
 
   const searchInput = (
-    <Input
-      placeholder='Search name'
-      value={searchText}
-      onChange={(e) => setSearchText(e.target.value)}
-      style={{ width: 200 }}
-    />
+    <Row align='middle' gutter={12}>
+      <Col className='gutter-row'>
+        <SearchOutlined />
+      </Col>
+
+      <Col className='gutter-row'>
+        <Input
+          placeholder='Search name'
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+          style={{ width: 200 }}
+          allowClear
+        />
+      </Col>
+    </Row>
   );
 
   const filteredPokemons = searchText
