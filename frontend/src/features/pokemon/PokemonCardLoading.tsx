@@ -8,8 +8,8 @@ export interface LoadingProps {
 }
 
 const PokemonCardLoading = (props: LoadingProps) => {
-  const [block, setBlock] = useState(true);
-  const [buttonShape, setButtonShape] = useState<ButtonShapeType>('default');
+  const [block] = useState(true);
+  const [buttonShape] = useState<ButtonShapeType>('default');
 
   return (
     <>

@@ -82,7 +82,7 @@ const About = () => {
                 get ready to explore!
               </Paragraph>
 
-              <Link to='/'>
+              <Link to='/catalog'>
                 <Button icon={<CompassOutlined />} size={size}>
                   Explore now!
                 </Button>

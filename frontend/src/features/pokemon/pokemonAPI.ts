@@ -1,4 +1,4 @@
-import ky, { request } from '../../utils/ky';
+import { request } from '../../utils/ky';
 
 import type { PokemonCatalog, QueryParams } from './types';
 
