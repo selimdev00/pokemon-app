@@ -11,6 +11,8 @@ import { EyeOutlined } from '@ant-design/icons';
 
 import type { Pokemon } from './types';
 
+import whereIsPokemonImage from '../images/where-is-pokemon.webp';
+
 interface Props {
   pokemon: Pokemon;
 }
@@ -42,14 +44,21 @@ const PokemonCard = (props: Props) => {
   }
 
   function generateRandomColor() {
-    // Generate random hue value between 0 and 360
     const hue = Math.floor(Math.random() * 360);
-    // Generate random saturation value between 50% and 100%
     const saturation = Math.floor(Math.random() * 50) + 50;
-    // Generate random lightness value between 30% and 70%
     const lightness = Math.floor(Math.random() * 40) + 30;
-    // Return HSL color string
     return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+  }
+
+  function PokemonImage(pokemon: Pokemon) {
+    const { other } = pokemon.sprites;
+
+    return (
+      other['official-artwork']?.front_default ||
+      other.dream_world?.front_default ||
+      other.home?.front_default ||
+      whereIsPokemonImage
+    );
   }
 
   if (loading) return <PokemonCardLoading active={true} />;
@@ -62,7 +71,7 @@ const PokemonCard = (props: Props) => {
         cover={
           <Image
             alt={pokemon.name}
-            src={pokemon.sprites.other['official-artwork'].front_default}
+            src={PokemonImage(pokemon)}
             style={{ maxHeight: 200, objectFit: 'contain' }}
           />
         }
