@@ -63,11 +63,11 @@ const Default = (props: LayoutProps) => {
           </Col>
           <Row className='gutter-row' align='middle' gutter={5}>
             <Col className='gutter-row'>
-              <Avatar size={24} src='https://github.com/richiedev666.png' />
+              <Avatar size={24} src='https://avatars.githubusercontent.com/u/69434200?v=4' />
             </Col>
             <Col className='gutter-row'>
-              <a href='https://github.com/richiedev666' target='_blank' rel='noreferrer'>
-                Richie
+              <a href='https://github.com/selimdev00' target='_blank' rel='noreferrer'>
+                selimdev
               </a>
             </Col>
           </Row>
